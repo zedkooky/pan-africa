@@ -1,0 +1,8 @@
+{
+  "name": "panafrica-distributors-site",
+  "private": true,
+  "description": "Panafrica Distributors marketing site with a local JSON CMS",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

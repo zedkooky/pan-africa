@@ -1,0 +1,268 @@
+{
+  "updatedAt": "2026-09-24T00:00:00.000Z",
+  "settings": {
+    "adminPin": "panafrica"
+  },
+  "meta": {
+    "homeTitle": "Pan Africa Distributors — Last-Mile FMCG Distribution, Zambia",
+    "homeDescription": "Panafrica Distributors Ltd is a large-scale Zambian distributor of fast-moving consumer goods, serving around 6,000 outlets across Lusaka, Western and Southern Provinces through Direct Store Delivery.",
+    "teamTitle": "Leadership — Panafrica Distributors Limited",
+    "teamDescription": "The directors and senior management of Panafrica Distributors Limited — the team behind Zambia's last-mile FMCG distribution network."
+  },
+  "brand": {
+    "shortName": "PanAfrica",
+    "nameSub": "Distributors",
+    "legalName": "Panafrica Distributors Limited",
+    "preloaderWord": "PanAfrica.",
+    "preloaderTag": "Distributors · Zambia",
+    "ticker": "Panafrica.",
+    "lionSrc": "assets/pad-lion.png",
+    "phoneDisplay": "+260 211 242716",
+    "phoneHref": "tel:+260211242716"
+  },
+  "nav": {
+    "homeLinks": [
+      { "label": "Story", "href": "#story" },
+      { "label": "Network", "href": "#network" },
+      { "label": "Brands", "href": "#principals" },
+      { "label": "Leadership", "href": "team.html" },
+      { "label": "Inquire", "href": "#inquire" }
+    ],
+    "teamLinks": [
+      { "label": "Story", "href": "index.html#story" },
+      { "label": "Network", "href": "index.html#network" },
+      { "label": "Brands", "href": "index.html#principals" },
+      { "label": "Leadership", "href": "team.html", "current": true },
+      { "label": "Inquire", "href": "index.html#inquire" }
+    ]
+  },
+  "menuFoot": "Panafrica Distributors Limited\nPlot 20108, Mumbwa Road, Chinika Area\nLusaka, Zambia",
+  "hero": {
+    "kicker": "Distributing across",
+    "headline": "Every Last Mile",
+    "subtitleDesktop": "Zambia’s large-scale FMCG distributor —\ntwenty years of reach and discipline.",
+    "subtitleMobile": "Premium FMCG distribution with reach,\ndiscipline, and last-mile precision.",
+    "image": "assets/hero.jpg",
+    "imageAlt": "",
+    "strip": ["Lusaka", "Monze", "Livingstone", "Est. 20 years"]
+  },
+  "statement": {
+    "text": "Twenty years of moving Zambia’s essentials\nfrom the warehouse floor to the last shelf,\nthrough township and city alike. Reach is not\na claim. It is a discipline we keep."
+  },
+  "stats": [
+    { "end": 20, "suffix": "", "group": false, "label": "Years of Distribution" },
+    { "end": 6000, "suffix": "+", "group": true, "label": "Outlets Served" },
+    { "end": 100, "suffix": "+", "group": false, "label": "Vehicles on the Road" }
+  ],
+  "gallery": {
+    "title": "The Character",
+    "subtitle": "Warehouse, fleet, routes — hover a frame",
+    "items": [
+      { "src": "assets/gallery-1.jpg", "name": "Warehouse Floor", "note": "Chinika Area, Lusaka" },
+      { "src": "assets/gallery-2.jpg", "name": "Wholesale Supply", "note": "Bulk aisles, high turnover" },
+      { "src": "assets/gallery-3.jpg", "name": "Modern Trade", "note": "Supermarkets & retail" },
+      { "src": "assets/gallery-4.jpg", "name": "Last Mile", "note": "Direct Store Delivery" },
+      { "src": "assets/gallery-5.jpg", "name": "Fleet & Routes", "note": "Lusaka · Western · Southern" },
+      { "src": "assets/gallery-6.jpg", "name": "Picking & Packing", "note": "Order fulfilment" }
+    ]
+  },
+  "story": {
+    "eyebrow": "01 — The Company",
+    "title": "Twenty years of carrying the goods that keep Zambia moving.",
+    "lead": "Panafrica Distributors Limited is a Zambian-registered, large-scale distributor of fast-moving consumer goods — not a conventional wholesaler, but a specialist in the last mile.",
+    "body": "We operate out of a 3,000 m² warehouse and office facility at Plot 20108, Mumbwa Road, Chinika Area, Lusaka, supported by depots in Monze and Livingstone. Our model is Direct Store Delivery: our own people, in our own vehicles, placing and replenishing stock on the shelf where it actually sells.",
+    "image": "assets/story.jpg",
+    "imageAlt": "A deep warehouse aisle at Panafrica Distributors, shelving stacked with packaged fast-moving consumer goods under overhead lights.",
+    "captionLeft": "The warehouse floor, Lusaka",
+    "captionRight": "Direct Store Delivery",
+    "facts": [
+      { "label": "Established", "value": "20 yrs" },
+      { "label": "Workforce", "value": "163" },
+      { "label": "Warehouse", "value": "3,000 m²" },
+      { "label": "Outlets", "value": "6,000" }
+    ]
+  },
+  "network": {
+    "eyebrow": "02 — The Network",
+    "title": "Three depots. Three provinces. One last mile.",
+    "body": "From Lusaka we serve the Lusaka and Western Province markets. Monze and Livingstone carry the Southern Province, with weekly routes into the towns and townships that national chains rarely reach.",
+    "image": "assets/network.jpg",
+    "imageAlt": "Laden distribution trucks moving along a multi-lane highway at speed.",
+    "depots": [
+      { "idx": "01", "place": "Lusaka", "role": "HQ & Main Warehouse" },
+      { "idx": "02", "place": "Monze", "role": "Southern Depot" },
+      { "idx": "03", "place": "Livingstone", "role": "Southern Depot" }
+    ],
+    "routes": [
+      "Mazabuka & Monze",
+      "Choma & Mamba",
+      "Livingstone & Kazungula",
+      "Zimba & Kalomo",
+      "Mumbwa — Mungu",
+      "Kafue & Siavonga",
+      "Chirundu"
+    ]
+  },
+  "map": {
+    "title": "Where the last mile reaches",
+    "intro": "An indicative map of the network. Each route line is drawn hub by hub — Lusaka west to Mongu, and south through Monze and Choma to Livingstone and the Kazungula border.",
+    "ariaLabel": "Indicative map of Zambia showing Panafrica Distributors depots at Lusaka, Monze and Livingstone and their distribution routes.",
+    "legend": [
+      { "kind": "depot", "title": "Depots", "text": "Lusaka (HQ), Monze and Livingstone — the three hubs that hold stock and dispatch the fleet." },
+      { "kind": "town", "title": "Route towns", "text": "Mazabuka, Choma, Kalomo, Zimba, Kazungula, Mamba, Mumbwa, Mungu, Kafue, Siavonga, Chirundu and Mongu." },
+      { "kind": "town", "title": "Coverage", "text": "Lusaka, Southern and Western provinces, with cross-border corridors at Kazungula and Chirundu." }
+    ]
+  },
+  "brands": {
+    "eyebrow": "03 — Principal Brands",
+    "title": "Trusted to carry names that people already know.",
+    "intro": "Panafrica Distributors represents its principals exclusively across its territories, servicing modern trade, wholesalers, supermarkets, large and small-scale retailers, bars, clubs, restaurants and hotels.",
+    "note": "Photography is representative of each product category and does not depict the principals’ own packaging.",
+    "items": [
+      {
+        "idx": "01 / Principal",
+        "name": "British American Tobacco",
+        "desc": "The group’s deepest franchise, served by a dedicated field and delivery team working a trade customer base of roughly 1,950 outlets on tight, high-frequency cycles.",
+        "caption": "Tobacco & nicotine",
+        "image": "assets/brand-tobacco.jpg",
+        "imageAlt": "Cured tobacco leaves in a processing tray."
+      },
+      {
+        "idx": "02 / Principal",
+        "name": "Nestlé South Africa",
+        "desc": "The food and beverage lines that restock fastest — everyday pantry and beverage brands that keep a route profitable and a shelf full between deliveries.",
+        "caption": "Food & beverage",
+        "image": "assets/brand-food.jpg",
+        "imageAlt": "Beverage bottles and food packaging arranged on a counter."
+      },
+      {
+        "idx": "03 / Principal",
+        "name": "Lion Match Products",
+        "desc": "Matches and household essentials with deep, repeat demand: low ticket, high frequency, sold in every outlet type from supermarket to street kiosk.",
+        "caption": "Household & matches",
+        "image": "assets/brand-match.jpg",
+        "imageAlt": "Matches and small household goods stacked in a store."
+      },
+      {
+        "idx": "04 / Principal",
+        "name": "Colgate-Palmolive Zambia",
+        "desc": "Oral and personal care placed and replenished shelf by shelf, with the merchandising discipline and category control that personal care demands.",
+        "caption": "Personal & oral care",
+        "image": "assets/brand-care.jpg",
+        "imageAlt": "Oral and personal care products on a bathroom shelf."
+      },
+      {
+        "idx": "05 / Principal",
+        "name": "Mansa Sugar",
+        "desc": "Sugar and staples moved in bulk to wholesalers, supermarkets and large-scale retailers along the Lusaka and Southern Province corridors.",
+        "caption": "Sugar & staples",
+        "image": "assets/brand-sugar.jpg",
+        "imageAlt": "Refined sugar in bulk sacks and scoops."
+      },
+      {
+        "idx": "06 / Principal",
+        "name": "Duncan Gilbey & Matheson",
+        "desc": "Spirits and beverages supplied to the on-trade — bars, clubs, restaurants and hotels — alongside the off-trade liquor and grocery channel.",
+        "caption": "Spirits & beverages",
+        "image": "assets/brand-spirits.jpg",
+        "imageAlt": "Spirits and beverage bottles on a bar counter."
+      }
+    ]
+  },
+  "inquire": {
+    "eyebrow": "04 — Inquire",
+    "title": "Let’s put your product on the last shelf.",
+    "intro": "If you are a brand looking for disciplined, verified last-mile distribution in Zambia, our commercial team would like to hear from you.",
+    "details": [
+      { "label": "Head Office", "html": "Plot 20108, Mumbwa Road,<br>Chinika Area, Lusaka, Zambia" },
+      { "label": "Telephone", "html": "<a href=\"tel:+260211242716\">+260 211 242716</a> / <a href=\"tel:+260977783995\">+260 977 783995</a>" },
+      { "label": "Postal", "html": "P.O. Box 34837, Lusaka" }
+    ],
+    "formNote": "This is a demonstration form. No message is transmitted.",
+    "successTitle": "Thank you — received.",
+    "successBody": "Your enquiry has been recorded. A member of the Panafrica commercial team will be in touch during working hours.",
+    "submitLabel": "Send enquiry"
+  },
+  "footer": {
+    "brand": "© Panafrica Distributors Limited",
+    "meta": "Registered in Zambia · Est. 20 years · Direct Store Delivery"
+  },
+  "teamPage": {
+    "eyebrow": "Leadership",
+    "title": "A management team that has run the route itself.",
+    "intro": "Panafrica Distributors Limited is led by directors and senior managers with long tenure across Zambian retail, wholesale, agriculture and financial services — people who know the outlets, the roads and the seasonality of the trade.",
+    "crumbSite": "← Back to the main site",
+    "crumbMeta": "Panafrica Distributors Limited · Lusaka, Zambia",
+    "note": "Profiles reflect the directors and senior management named in the Panafrica Distributors Limited company profile. Portraits are optional — add them in the editor.",
+    "ctaEyebrow": "Work with us",
+    "ctaTitle": "Let’s put your product on the last shelf.",
+    "ctaBody": "If you are a brand looking for disciplined, verified last-mile distribution in Zambia, our commercial team would like to hear from you.",
+    "ctaButton": "Send an enquiry",
+    "people": [
+      {
+        "initials": "SM",
+        "name": "Hon. Suresh M. Desai",
+        "role": "Chairman",
+        "bio": "Forty years in retail, wholesale and last-mile distribution. A former Member of Parliament and minister, holding portfolios including Energy and Water Development, Works and Supply, and Agriculture.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "RD",
+        "name": "Rajen Desai",
+        "role": "Executive Director",
+        "bio": "An MBA from the University of Derby (UK) and more than twelve years of hands-on last-mile distribution experience across the group’s territories.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "NM",
+        "name": "Nainan Mathews",
+        "role": "General Manager",
+        "bio": "An honours degree in agriculture with thirty-six years of experience — thirteen years in agricultural distribution and sixteen years in FMCG marketing.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "TC",
+        "name": "Thirumula Chary",
+        "role": "AGM — Operations & Finance",
+        "bio": "An MBA in finance with fourteen years in banking and eight years leading management information systems.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "SD",
+        "name": "Sanjay Datta",
+        "role": "AGM — Sales & Marketing",
+        "bio": "An MA in economics and B.Com (Meerut University) with over thirty years in sales and marketing, product launches and distributor network development.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "MS",
+        "name": "Malawo Siakufweba",
+        "role": "Accountant",
+        "bio": "Eleven years in accounting across transport, manufacturing and distribution. Holds the ATD accounting diploma and is pursuing ZICA certification.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "GF",
+        "name": "Greyson Foloshi",
+        "role": "Distribution Manager — Tobacco",
+        "bio": "A business administration graduate with several years across sales, marketing and distribution, including service with British American Tobacco.",
+        "photo": "",
+        "photoAlt": ""
+      },
+      {
+        "initials": "IM",
+        "name": "Ismail Mulla",
+        "role": "Distribution Manager — Wholesale",
+        "bio": "Thirty-five years of experience in sales and marketing, running wholesale distribution across the group’s network.",
+        "photo": "",
+        "photoAlt": ""
+      }
+    ]
+  }
+}
