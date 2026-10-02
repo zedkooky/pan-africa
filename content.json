@@ -173,8 +173,8 @@
     "eyebrow": "02 — The Network",
     "title": "Three depots. Four provinces. One last mile.",
     "body": "Our presence spans the Lusaka, Western, Eastern and Southern Provinces. Lusaka is the hub for the capital and Western Province, while Monze and Livingstone carry the Southern Province, with weekly routes into the towns and townships that national chains rarely reach.",
-    "image": "assets/network.jpg",
-    "imageAlt": "Laden distribution trucks moving along a multi-lane highway at speed.",
+    "image": "assets/network-truck.jpg",
+    "imageAlt": "A Panafrica Distributors delivery truck on the highway in Southern Province, Zambia, with dry bush and hills in the evening light.",
     "depots": [
       {
         "idx": "01",
