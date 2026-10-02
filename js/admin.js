@@ -218,7 +218,7 @@
       (function () {
         var p = document.createElement('p');
         p.className = 'lede';
-        p.textContent = 'Home page links. Use #story for in-page sections, or team.html for other pages.';
+        p.textContent = 'Home page links. Use #story for in-page sections, or page names like coverage.html.';
         return p;
       })(),
       listEditor(c.nav.homeLinks, function () { return { label: 'New link', href: '#' }; }, function (item) {
@@ -230,17 +230,14 @@
       (function () {
         var p = document.createElement('p');
         p.className = 'lede';
-        p.textContent = 'Leadership page links (usually point back to index.html#…).';
+        p.textContent = 'Links on all other pages (usually point back to index.html#… or to the other pages).';
         return p;
       })(),
-      listEditor(c.nav.teamLinks, function () { return { label: 'New link', href: 'index.html#' }; }, function (item) {
-        var box = document.createElement('div');
-        box.appendChild(grid([
+      listEditor(c.nav.subLinks, function () { return { label: 'New link', href: 'index.html#' }; }, function (item) {
+        return grid([
           field('Label', textInput(item.label, function (v) { item.label = v; })),
           field('Href', textInput(item.href, function (v) { item.href = v; }))
-        ]));
-        box.appendChild(checkInput(item.current, function (v) { item.current = v; }, 'Mark as current page'));
-        return box;
+        ]);
       })
     ]));
 

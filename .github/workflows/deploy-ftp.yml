@@ -18,7 +18,7 @@ jobs:
       - name: Stage public files only (no CMS, server, admin or working files)
         run: |
           mkdir site
-          cp index.html team.html enquiry.php PAD-Logo.png favicon.ico robots.txt sitemap.xml .htaccess site/
+          cp index.html team.html coverage.html brands.html contact.html enquiry.php PAD-Logo.png favicon.ico robots.txt sitemap.xml .htaccess site/
           cp -r assets icons site/
           rm -f site/assets/uploads -r
           mkdir site/js && cp js/cms.js site/js/

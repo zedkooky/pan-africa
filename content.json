@@ -4,7 +4,13 @@
     "homeTitle": "Panafrica Distributors — Last-Mile FMCG Distribution, Zambia",
     "homeDescription": "Panafrica Distributors Limited is a Zambian FMCG distributor established over 24 years ago, serving about 8,000 outlets weekly across Lusaka, Western, Eastern and Southern Provinces through Direct Store Delivery.",
     "teamTitle": "Leadership — Panafrica Distributors Limited",
-    "teamDescription": "The directors and senior management of Panafrica Distributors Limited — the team behind Zambia's last-mile FMCG distribution network."
+    "teamDescription": "The directors and senior management of Panafrica Distributors Limited — the team behind Zambia's last-mile FMCG distribution network.",
+    "brandsTitle": "Our Principals — Brands We Distribute in Zambia | Panafrica Distributors",
+    "brandsDescription": "Panafrica Distributors is an official distributor in Zambia for British American Tobacco, Nestlé, Lion Match, Sylko NSP, Colgate-Palmolive, Duncan Gilbey & Matheson and Promasidor.",
+    "coverageTitle": "Coverage — Lusaka, Western, Eastern & Southern Provinces | Panafrica Distributors",
+    "coverageDescription": "Where Panafrica Distributors delivers: depots in Lusaka, Monze and Livingstone, and weekly Direct Store Delivery routes to about 8,000 outlets across four provinces of Zambia.",
+    "contactTitle": "Contact & Become a Principal — Panafrica Distributors, Lusaka",
+    "contactDescription": "Contact Panafrica Distributors in Lusaka, Zambia, or enquire about appointing us as your FMCG distributor. Phone +260 972 145257, email info@padl.co.zm."
   },
   "brand": {
     "shortName": "PanAfrica",
@@ -24,43 +30,42 @@
         "href": "#story"
       },
       {
-        "label": "Network",
-        "href": "#network"
+        "label": "Coverage",
+        "href": "coverage.html"
       },
       {
         "label": "Brands",
-        "href": "#principals"
+        "href": "brands.html"
       },
       {
         "label": "Leadership",
         "href": "team.html"
       },
       {
-        "label": "Inquire",
-        "href": "#inquire"
+        "label": "Contact",
+        "href": "contact.html"
       }
     ],
-    "teamLinks": [
+    "subLinks": [
       {
         "label": "Story",
         "href": "index.html#story"
       },
       {
-        "label": "Network",
-        "href": "index.html#network"
+        "label": "Coverage",
+        "href": "coverage.html"
       },
       {
         "label": "Brands",
-        "href": "index.html#principals"
+        "href": "brands.html"
       },
       {
         "label": "Leadership",
-        "href": "team.html",
-        "current": true
+        "href": "team.html"
       },
       {
-        "label": "Inquire",
-        "href": "index.html#inquire"
+        "label": "Contact",
+        "href": "contact.html"
       }
     ]
   },
@@ -139,7 +144,7 @@
     ]
   },
   "story": {
-    "eyebrow": "01 — The Company",
+    "eyebrow": "The Company",
     "title": "More than twenty-four years of carrying the goods that keep Zambia moving.",
     "lead": "Panafrica Distributors Limited (PAD Ltd) is a Zambian-registered distributor of fast-moving consumer goods, established over 24 years ago and owned by Hon. Suresh M. Desai and Rajen Desai, both Zambian citizens. It is not a conventional wholesaler, but a specialist in the last mile.",
     "body": "We operate out of a 3,000 m² warehouse and office facility at Plot 20108, Mumbwa Road, Chinika Area, Lusaka, supported by branches in Monze (1,000 m²) and Livingstone (2,000 m²). Our model is Direct Store Delivery: our own people, in our own vehicles, placing and replenishing stock on the shelf where it actually sells.",
@@ -167,7 +172,7 @@
     ]
   },
   "network": {
-    "eyebrow": "02 — The Network",
+    "eyebrow": "The Network",
     "title": "Three depots. Four provinces. One last mile.",
     "body": "Our presence spans the Lusaka, Western, Eastern and Southern Provinces. Lusaka is the hub for the capital and Western Province, while Monze and Livingstone carry the Southern Province, with weekly routes into the towns and townships that national chains rarely reach.",
     "image": "assets/network-truck.jpg",
@@ -200,7 +205,8 @@
       "Chongwe & Rufunsa",
       "Nyimba & Petauke",
       "Katete & Chipata"
-    ]
+    ],
+    "cta": "Explore coverage & routes"
   },
   "map": {
     "title": "Where the last mile reaches",
@@ -225,7 +231,7 @@
     ]
   },
   "brands": {
-    "eyebrow": "03 — Principal Brands",
+    "eyebrow": "Principal Brands",
     "title": "Trusted to carry names that people already know.",
     "intro": "Panafrica Distributors is an official distributor for its principals, servicing modern trade, wholesalers, supermarkets, large retailers, township shops, bars, clubs, restaurants and hotels.",
     "note": "Photography is representative of each product category and does not depict the principals’ own packaging.",
@@ -259,8 +265,8 @@
         "name": "Sylko NSP",
         "desc": "Thread and haberdashery for the retail and township trade, placed and replenished shelf by shelf.",
         "caption": "Thread & haberdashery",
-        "image": "assets/brand-match.jpg",
-        "imageAlt": "Small household goods stacked in a store."
+        "image": "assets/brand-sylko.jpg",
+        "imageAlt": "Sylko NSP — thread and haberdashery"
       },
       {
         "idx": "05 / Principal",
@@ -283,13 +289,14 @@
         "name": "Promasidor",
         "desc": "Bulk powdered milk supplied to wholesalers and large retailers.",
         "caption": "Bulk powdered milk",
-        "image": "assets/brand-food.jpg",
-        "imageAlt": "Packaged food and beverage products on a counter."
+        "image": "assets/brand-promasidor.jpg",
+        "imageAlt": "Promasidor — bulk powdered milk"
       }
-    ]
+    ],
+    "cta": "See all principals"
   },
   "inquire": {
-    "eyebrow": "04 — Inquire",
+    "eyebrow": "Inquire",
     "title": "Let’s put your product on the last shelf.",
     "intro": "If you are a brand looking for disciplined, verified last-mile distribution in Zambia, our commercial team would like to hear from you.",
     "details": [
@@ -395,6 +402,49 @@
         "bio": "Over 20 years in labour administration and human resources management across membership organisations, oil marketing, manufacturing, transport and distribution.",
         "photo": "",
         "photoAlt": ""
+      }
+    ]
+  },
+  "brandsPage": {
+    "eyebrow": "Principals",
+    "title": "The brands we carry to the last shelf.",
+    "intro": "Panafrica Distributors is an official distributor for seven principals, from tobacco and food to personal care, spirits and household goods. Each is served with the same discipline: our own people, our own vehicles, delivered direct to the outlet.",
+    "crumbSite": "← Back to the main site",
+    "crumbMeta": "Panafrica Distributors Limited · Lusaka, Zambia"
+  },
+  "coveragePage": {
+    "eyebrow": "Coverage",
+    "title": "Four provinces. Weekly. On the shelf.",
+    "intro": "From the Chinika Area head office in Lusaka and branches in Monze and Livingstone, we service about 8,000 outlets every week across the Lusaka, Western, Eastern and Southern Provinces — supermarkets and hotels in the city, bars, clubs and small shops in the townships.",
+    "crumbSite": "← Back to the main site",
+    "crumbMeta": "Panafrica Distributors Limited · Lusaka, Zambia"
+  },
+  "contactPage": {
+    "eyebrow": "Contact",
+    "title": "Talk to the team that runs the route.",
+    "intro": "Whether you are a brand looking for a last-mile distributor in Zambia or a customer with a question, write to us or call. We reply during working hours, usually within one business day.",
+    "crumbSite": "← Back to the main site",
+    "crumbMeta": "Panafrica Distributors Limited · Lusaka, Zambia",
+    "whyEyebrow": "For principals",
+    "whyTitle": "Why brands choose Panafrica.",
+    "mission": "Empowering Zambia with fast, reliable, customer-first distribution, bridging suppliers and consumers with premium products. We fuel sustainable growth for partners and communities, creating a stronger, more connected future.",
+    "missionLabel": "Our mission",
+    "why": [
+      {
+        "title": "Direct Store Delivery",
+        "body": "Our own people in our own vehicles deliver straight to the outlet, which strengthens customer relationships and reliability."
+      },
+      {
+        "title": "Reach that is measured",
+        "body": "About 8,036 outlets served every week across four provinces — modern trade, wholesalers, supermarkets, township shops, bars, clubs, restaurants and hotels."
+      },
+      {
+        "title": "People and fleet",
+        "body": "139 employees and more than 90 vehicles, from large trucks to small vans, adapt to any terrain and customer."
+      },
+      {
+        "title": "Integrity and compliance",
+        "body": "The company operates with the highest standards of ethics and professionalism, with fair business practices and full legal and regulatory compliance."
       }
     ]
   }

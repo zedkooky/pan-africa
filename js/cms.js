@@ -232,14 +232,15 @@
   }
 
   function renderNav(content, kind) {
-    var links = kind === 'team' ? content.nav.teamLinks : content.nav.homeLinks;
+    var links = kind === 'home' ? content.nav.homeLinks : content.nav.subLinks;
+    var here = (location.pathname.split('/').pop() || 'index.html');
     document.querySelectorAll('[data-nav]').forEach(function (nav) {
       nav.innerHTML = '';
       links.forEach(function (link) {
         var a = document.createElement('a');
         a.href = link.href;
         a.textContent = link.label;
-        if (link.current) a.setAttribute('aria-current', 'page');
+        if (kind !== 'home' && link.href.split('#')[0] === here && link.href.indexOf('#') === -1) a.setAttribute('aria-current', 'page');
         nav.appendChild(a);
       });
     });
@@ -386,6 +387,38 @@
     });
   }
 
+  function brandSlug(name) {
+    var map = { 'British American Tobacco': 'bat', 'Nestl\u00e9 South Africa': 'nestle', 'Lion Match Products': 'lion-match', 'Sylko NSP': 'sylko', 'Colgate-Palmolive Zambia': 'colgate', 'Duncan Gilbey & Matheson': 'dgm', 'Promasidor': 'promasidor' };
+    return map[name] || String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  function badgeOf(name) {
+    if (name.indexOf('British American') !== -1) return ['bat', 'BAT'];
+    if (name.indexOf('Nestl') !== -1) return ['nestle', 'Nestl\u00e9'];
+    if (name.indexOf('Lion Match') !== -1) return ['lion', 'Lion Match'];
+    if (name.indexOf('Colgate') !== -1) return ['colgate', 'Colgate'];
+    if (name.indexOf('Sylko') !== -1) return ['sylko', 'Sylko'];
+    if (name.indexOf('Promasidor') !== -1) return ['promasidor', 'Promasidor'];
+    return ['dgm', 'DGM'];
+  }
+  function renderBrandChips(content) {
+    var el = document.getElementById('brandChips');
+    if (!el) return;
+    el.innerHTML = '';
+    ((content.brands && content.brands.items) || []).forEach(function (b) {
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = 'brands.html#brand-' + brandSlug(b.name);
+      var bd = badgeOf(b.name);
+      var badge = document.createElement('span');
+      badge.className = 'brand-logo-badge ' + bd[0];
+      badge.textContent = bd[1];
+      var nm = document.createElement('span'); nm.className = 'bc-name'; nm.textContent = b.name;
+      var cp = document.createElement('span'); cp.className = 'bc-cap'; cp.textContent = b.caption;
+      a.appendChild(badge); a.appendChild(nm); a.appendChild(cp);
+      li.appendChild(a); el.appendChild(li);
+    });
+  }
+
   async function renderBrands(content) {
     var el = document.getElementById('brandRows');
     if (!el) return;
@@ -395,6 +428,7 @@
       var b = items[i];
       var art = document.createElement('article');
       art.className = 'brand-feature reveal';
+      art.id = 'brand-' + brandSlug(b.name);
       var fig = document.createElement('figure');
       fig.className = 'brand-media';
       var img = document.createElement('img');
@@ -514,9 +548,10 @@
 
   async function hydrate(page) {
     var content = await loadContent();
-    document.title = page === 'team' ? content.meta.teamTitle : content.meta.homeTitle;
+    var pk = page === 'home' ? 'home' : page;
+    if (content.meta[pk + 'Title']) document.title = content.meta[pk + 'Title'];
     var desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', page === 'team' ? content.meta.teamDescription : content.meta.homeDescription);
+    if (desc && content.meta[pk + 'Description']) desc.setAttribute('content', content.meta[pk + 'Description']);
 
     applyText(document, content);
     await applyMedia(document, content);
@@ -530,6 +565,7 @@
     renderRoutes(content);
     renderLegend(content);
     await renderBrands(content);
+    renderBrandChips(content);
     renderInquireDetails(content);
     await renderTeam(content);
 
