@@ -18,13 +18,17 @@ jobs:
       - name: Stage public files only (no CMS, server, admin or working files)
         run: |
           mkdir site
-          cp index.html team.html enquiry.php PAD-Logo.png site/
-          cp -r assets site/assets
+          cp index.html team.html enquiry.php PAD-Logo.png favicon.ico robots.txt sitemap.xml .htaccess site/
+          cp -r assets icons site/
+          rm -f site/assets/uploads -r
           mkdir site/js && cp js/cms.js site/js/
           # strip the editor PIN from the published content
           jq 'del(.settings)' content.json > site/content.json
           # the editor needs the Node server, which static hosting does not run
           sed -i '/class="foot-edit"/d' site/index.html site/team.html
+          # canonical/OG/sitemap URLs default to https://padl.co.zm; set repo variable SITE_URL to override
+          SITE="${{ vars.SITE_URL || 'https://padl.co.zm' }}"
+          grep -rl 'https://padl.co.zm' site --include=*.html --include=*.xml --include=*.txt | xargs sed -i "s#https://padl.co.zm#${SITE%/}#g"
           find site -type f | sort
 
       - name: Deploy to FTP

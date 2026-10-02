@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /enquiry.php
+
+Sitemap: https://padl.co.zm/sitemap.xml
