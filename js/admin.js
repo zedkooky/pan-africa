@@ -423,13 +423,12 @@
     root.appendChild(section('footer', 'Footer & access', [
       grid([
         field('Footer brand line', textInput(foot.brand, function (v) { foot.brand = v; })),
-        field('Footer meta line', textInput(foot.meta, function (v) { foot.meta = v; })),
-        field('Editor PIN', textInput(c.settings.adminPin, function (v) { c.settings.adminPin = v; }))
+        field('Footer meta line', textInput(foot.meta, function (v) { foot.meta = v; }))
       ]),
       (function () {
         var p = document.createElement('p');
         p.className = 'lede';
-        p.textContent = 'Change the PIN after first use. Anyone who can open admin.html still needs this PIN.';
+        p.textContent = 'The editor PIN is set when starting the local server (PAD_ADMIN_PIN) and is never stored in the site files.';
         return p;
       })()
     ]));
@@ -535,30 +534,34 @@
       '<form id="gateForm">' +
       '<label class="field"><span>PIN</span><input id="pin" type="password" autocomplete="current-password" required></label>' +
       '<button class="primary" type="submit">Open editor</button>' +
-      '<p class="hint">Default PIN is <code>panafrica</code> until you change it in Footer &amp; access.</p>' +
+      '<p class="hint">The PIN is set when the local server starts: <code>PAD_ADMIN_PIN=&hellip; npm start</code>.</p>' +
       '</form>' +
       '<p id="gateErr" class="status err" hidden></p>' +
       '</div>';
     document.getElementById('gateForm').addEventListener('submit', function (e) {
       e.preventDefault();
       var pin = document.getElementById('pin').value;
-      if (pin !== (state.content.settings && state.content.settings.adminPin)) {
-        var err = document.getElementById('gateErr');
+      var err = document.getElementById('gateErr');
+      fetch('/api/login', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pin: pin })
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status === 429 ? 'Too many attempts. Wait a minute.' : 'That PIN does not match.');
+        state.pin = pin;
+        sessionStorage.setItem(PADCMS.PIN_KEY, pin);
+        renderShell();
+      }).catch(function (ex) {
         err.hidden = false;
-        err.textContent = 'That PIN does not match.';
-        return;
-      }
-      state.pin = pin;
-      sessionStorage.setItem(PADCMS.PIN_KEY, '1');
-      renderShell();
+        err.textContent = /Failed to fetch|NetworkError/.test(ex.message) ? 'The editor server is not running. Start it with npm start.' : ex.message;
+      });
     });
   }
 
   Promise.all([PADCMS.loadContent(), PADCMS.probeServer()]).then(function (parts) {
     state.content = clone(parts[0]);
     state.server = parts[1];
-    if (sessionStorage.getItem(PADCMS.PIN_KEY) === '1') {
-      state.pin = state.content.settings.adminPin;
+    var savedPin = sessionStorage.getItem(PADCMS.PIN_KEY);
+    if (savedPin && savedPin !== '1') {
+      state.pin = savedPin;
       renderShell();
     } else {
       renderGate();

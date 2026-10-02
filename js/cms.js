@@ -29,6 +29,26 @@
     cur[parts[parts.length - 1]] = value;
   }
 
+  // Content may contain a little markup (line breaks, links, emphasis). Everything else is stripped.
+  var SAFE_TAGS = { BR: 1, A: 1, B: 1, STRONG: 1, EM: 1, I: 1, SPAN: 1, SMALL: 1 };
+  function safeHref(v) { return /^(https?:|mailto:|tel:|#|\/|[a-z0-9._-]+(\/|\.html|$))/i.test(String(v)) && !/^\s*(javascript|data|vbscript):/i.test(String(v)); }
+  function sanitizeHtml(html) {
+    var doc = new DOMParser().parseFromString('<body>' + String(html == null ? '' : html), 'text/html');
+    (function clean(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) return;
+        if (n.nodeType !== 1 || !SAFE_TAGS[n.tagName]) { n.parentNode.removeChild(n); return; }
+        Array.prototype.slice.call(n.attributes).forEach(function (at) {
+          var keep = n.tagName === 'A' && (at.name === 'href' && safeHref(at.value) || at.name === 'class');
+          if (!keep) n.removeAttribute(at.name);
+        });
+        if (n.tagName === 'A' && /^https?:/i.test(n.getAttribute('href') || '')) n.setAttribute('rel', 'noopener noreferrer');
+        clean(n);
+      });
+    })(doc.body);
+    return doc.body.innerHTML;
+  }
+
   function nlToBr(text) {
     if (text == null) return '';
     return String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
@@ -202,12 +222,12 @@
     (root || document).querySelectorAll('[data-cms-html]').forEach(function (el) {
       var v = getPath(content, el.getAttribute('data-cms-html'));
       if (v == null) return;
-      if (el.getAttribute('data-cms-nl') === 'true') el.innerHTML = nlToBr(v);
-      else el.innerHTML = v;
+      if (el.getAttribute('data-cms-nl') === 'true') el.innerHTML = sanitizeHtml(nlToBr(v));
+      else el.innerHTML = sanitizeHtml(v);
     });
     (root || document).querySelectorAll('[data-cms-href]').forEach(function (el) {
       var v = getPath(content, el.getAttribute('data-cms-href'));
-      if (v != null) el.setAttribute('href', v);
+      if (v != null && safeHref(v)) el.setAttribute('href', v);
     });
   }
 
@@ -436,7 +456,7 @@
       var dt = document.createElement('dt');
       dt.textContent = d.label;
       var dd = document.createElement('dd');
-      dd.innerHTML = d.html;
+      dd.innerHTML = sanitizeHtml(d.html);
       wrap.appendChild(dt);
       wrap.appendChild(dd);
       el.appendChild(wrap);

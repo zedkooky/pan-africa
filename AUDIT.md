@@ -38,3 +38,15 @@ No API keys, tokens or cloud credentials were found. No GPS EXIF in images. Cont
 8. Brand names (BAT, Nestlé, Colgate…) are in `<h3>`; fine, but add descriptive internal links/anchors and a visible address/NAP in the footer text.
 9. Set `robots` noindex on admin (done) and exclude from sitemap; block `/api/` in robots.txt.
 10. Register Google Search Console + Google Business Profile for the Lusaka address.
+
+---
+
+## Status update (2 Oct 2026)
+Fixed: #1 PIN removed from content/repo files (env var, constant-time check, throttled, server-side login);
+#2 server-side auth; #3 content HTML sanitised; #4 uploads limited to verified images, size caps;
+#5 server serves an allow-list only; #6 enquiry form now sends real email (PHP, Formspree backup);
+#7 security headers added via `.htaccess`; #8 admin/server never deployed; #9/anomalies: docx, duplicate and
+stray images removed from the repo.
+SEO: canonical, Open Graph/Twitter, JSON-LD, favicons, robots.txt, sitemap.xml, font preconnect, image compression.
+Still open: the old PIN `panafrica` remains in git history (rotate/never reuse; make repo private);
+page text is still filled by JS (static fallback kept in sync); single-page structure (Phase 4).
