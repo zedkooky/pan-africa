@@ -199,13 +199,16 @@
       "Zimba & Kalomo",
       "Mumbwa — Mungu",
       "Kafue & Siavonga",
-      "Chirundu"
+      "Chirundu",
+      "Chongwe & Rufunsa",
+      "Nyimba & Petauke",
+      "Katete & Chipata"
     ]
   },
   "map": {
     "title": "Where the last mile reaches",
-    "intro": "An indicative map of the network. Each route line is drawn hub by hub — Lusaka west to Mongu, and south through Monze and Choma to Livingstone and the Kazungula border.",
-    "ariaLabel": "Indicative map of Zambia showing Panafrica Distributors depots at Lusaka, Monze and Livingstone and their distribution routes.",
+    "intro": "An indicative map of the network. Each route line is drawn hub by hub — Lusaka west to Mongu, east along the Great East Road through Petauke to Katete and Chipata, and south through Monze and Choma to Livingstone and the Kazungula border.",
+    "ariaLabel": "Indicative map of Zambia showing Panafrica Distributors depots at Lusaka, Monze and Livingstone and distribution routes west to Mongu, south to Livingstone and east to Chipata.",
     "legend": [
       {
         "kind": "depot",
@@ -215,7 +218,7 @@
       {
         "kind": "town",
         "title": "Route towns",
-        "text": "Mazabuka, Choma, Kalomo, Zimba, Kazungula, Mamba, Mumbwa, Mungu, Kafue, Siavonga, Chirundu and Mongu."
+        "text": "Mazabuka, Choma, Kalomo, Zimba, Kazungula, Mamba, Mumbwa, Mungu, Kafue, Siavonga, Chirundu, Mongu, and in the east Chongwe, Rufunsa, Nyimba, Petauke, Katete and Chipata."
       },
       {
         "kind": "town",
