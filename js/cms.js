@@ -407,7 +407,8 @@
       else if (b.name.indexOf('Nestl') !== -1) { badge.classList.add('nestle'); badge.textContent = 'Nestlé'; }
       else if (b.name.indexOf('Lion Match') !== -1) { badge.classList.add('lion'); badge.textContent = 'Lion Match'; }
       else if (b.name.indexOf('Colgate') !== -1) { badge.classList.add('colgate'); badge.textContent = 'Colgate'; }
-      else if (b.name.indexOf('Mansa Sugar') !== -1) { badge.classList.add('mansa'); badge.textContent = 'Mansa Sugar'; }
+      else if (b.name.indexOf('Sylko') !== -1) { badge.classList.add('sylko'); badge.textContent = 'Sylko'; }
+      else if (b.name.indexOf('Promasidor') !== -1) { badge.classList.add('promasidor'); badge.textContent = 'Promasidor'; }
       else { badge.classList.add('dgm'); badge.textContent = 'DGM'; }
 
       headerRow.appendChild(h3);
