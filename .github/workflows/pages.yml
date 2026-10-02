@@ -1,0 +1,42 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stage public files only (no CMS, server, admin or working files)
+        run: |
+          mkdir dist
+          cp index.html team.html dist/
+          cp -r assets dist/assets
+          mkdir dist/js && cp js/cms.js dist/js/
+          cp PAD-Logo.png dist/
+          # strip the editor PIN from the published content
+          jq 'del(.settings)' content.json > dist/content.json
+          # remove the link to the editor, which does not work on static hosting
+          sed -i '/class="foot-edit"/d' dist/index.html dist/team.html
+          touch dist/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
