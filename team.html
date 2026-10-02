@@ -118,18 +118,30 @@ h1,h2,h3{ font-weight:400; }
 
 /* ============ Nav ============ */
 .nav{ position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:space-between;
-  align-items:center; padding:20px var(--pad-x); color:var(--ink); transition:color .35s ease; }
-.nav-brand{ display:flex; align-items:center; gap:10px; }
-.nav-lion{ width:26px; height:26px; background:currentColor; flex:none;
+  align-items:center; padding:20px var(--pad-x); color:var(--ink);
+  transition:color .35s ease, background-color .35s ease, padding .35s ease, box-shadow .35s ease, border-color .35s ease;
+  border-bottom:1px solid transparent; }
+/* glass header once the page is scrolled */
+.nav.scrolled{ padding-top:12px; padding-bottom:12px;
+  background:rgba(255,255,255,.55); border-bottom-color:rgba(255,255,255,.5);
+  -webkit-backdrop-filter:blur(18px) saturate(1.6); backdrop-filter:blur(18px) saturate(1.6);
+  box-shadow:0 8px 32px rgba(14,20,19,.10), inset 0 1px 0 rgba(255,255,255,.6); }
+.nav.scrolled.on-dark{ background:rgba(14,20,19,.38); border-bottom-color:rgba(255,255,255,.14);
+  box-shadow:0 8px 32px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.12); }
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .nav.scrolled{ background:rgba(255,255,255,.92); } .nav.scrolled.on-dark{ background:rgba(14,20,19,.88); } }
+.nav-brand{ display:flex; align-items:center; gap:14px; }
+.nav-lion{ width:42px; height:42px; background:currentColor; flex:none;
   -webkit-mask:var(--lion-mask, url("assets/pad-lion.png")) center/contain no-repeat;
   mask:var(--lion-mask, url("assets/pad-lion.png")) center/contain no-repeat; }
-.nav-logo{ font-family:var(--font-display); font-size:1.2rem; font-weight:700; letter-spacing:-.02em;
+.nav-logo{ font-family:var(--font-display); font-size:1.5rem; font-weight:700; letter-spacing:-.02em;
   display:inline-flex; align-items:baseline; gap:8px; white-space:nowrap; }
 .nav-logo-sub{ font-family:var(--font-body); font-weight:500; font-size:.62em; letter-spacing:.18em;
   text-transform:uppercase; opacity:.78; }
 @media (max-width:479px){
-  .nav-lion{ width:22px; height:22px; }
-  .nav-logo{ font-size:1.02rem; gap:6px; }
+  .nav-lion{ width:34px; height:34px; }
+  .nav-brand{ gap:10px; }
+  .nav-logo{ font-size:1.18rem; gap:6px; }
   .nav-logo-sub{ font-size:.54em; letter-spacing:.11em; }
 }
 .nav-right{ display:flex; align-items:center; gap:18px; }
@@ -386,6 +398,8 @@ h1,h2,h3{ font-weight:400; }
       return r.top <= 0 && r.bottom > 0;
     });
     nav.style.color = onDark ? '#ffffff' : LIGHT;
+    nav.classList.toggle('on-dark', onDark);
+    nav.classList.toggle('scrolled', window.scrollY > 24);
   }
 
   var menuOpen = false;
