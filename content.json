@@ -313,10 +313,11 @@
         "html": "P.O. Box 34837, Lusaka"
       }
     ],
-    "formNote": "This is a demonstration form. No message is transmitted.",
+    "formNote": "We reply during working hours, usually within one business day.",
     "successTitle": "Thank you — received.",
-    "successBody": "Your enquiry has been recorded. A member of the Panafrica commercial team will be in touch during working hours.",
-    "submitLabel": "Send enquiry"
+    "successBody": "Your enquiry has been sent. A member of the Panafrica commercial team will be in touch during working hours.",
+    "submitLabel": "Send enquiry",
+    "formspreeEndpoint": ""
   },
   "footer": {
     "brand": "© Panafrica Distributors Limited",

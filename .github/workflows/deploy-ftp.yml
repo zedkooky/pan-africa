@@ -18,7 +18,7 @@ jobs:
       - name: Stage public files only (no CMS, server, admin or working files)
         run: |
           mkdir site
-          cp index.html team.html PAD-Logo.png site/
+          cp index.html team.html enquiry.php PAD-Logo.png site/
           cp -r assets site/assets
           mkdir site/js && cp js/cms.js site/js/
           # strip the editor PIN from the published content

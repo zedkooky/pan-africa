@@ -504,6 +504,9 @@ h1,h2,h3{ font-weight:400; }
   font-size:.78rem; transition:background .25s ease,color .25s ease,transform .25s var(--ease-out); }
 .btn-submit:hover{ background:#fff; transform:translateY(-1px); }
 .btn-submit[disabled]{ opacity:.6; cursor:progress; transform:none; }
+.hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.form-error{ font-size:.82rem; color:#f0a48f; }
+.form-error[hidden]{ display:none; }
 .form-note{ font-size:.72rem; color:var(--on-dark-60); }
 .form-success{ display:none; border:1px solid var(--line-dark); border-radius:var(--radius);
   padding:26px; background:rgba(255,255,255,.03); }
@@ -943,12 +946,14 @@ h1,h2,h3{ font-weight:400; }
             <textarea id="f-message" name="message" required aria-describedby="e-message" placeholder="Your brand, territory and volumes of interest&hellip;"></textarea>
             <p class="err" id="e-message" role="alert">Please tell us a little about your enquiry.</p>
           </div>
+          <div class="hp" aria-hidden="true"><label for="f-website">Leave this field empty</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+          <p class="form-error" id="inqError" role="alert" hidden>Sorry, we could not send your message. Please call or email us directly.</p>
           <button class="btn-submit" id="inqSubmit" type="submit" data-cms="inquire.submitLabel">Send enquiry</button>
-          <p class="form-note" data-cms="inquire.formNote">This is a demonstration form. No message is transmitted.</p>
+          <p class="form-note" data-cms="inquire.formNote">We reply during working hours, usually within one business day.</p>
         </form>
         <div class="form-success" id="inqSuccess" role="status" aria-live="polite">
           <h3><span aria-hidden="true">&#10003;</span> <span data-cms="inquire.successTitle">Thank you &mdash; received.</span></h3>
-          <p data-cms="inquire.successBody">Your enquiry has been recorded. A member of the Panafrica commercial team will be in touch during working hours.</p>
+          <p data-cms="inquire.successBody">Your enquiry has been sent. A member of the Panafrica commercial team will be in touch during working hours.</p>
         </div>
       </div>
     </div>
@@ -1267,6 +1272,7 @@ h1,h2,h3{ font-weight:400; }
   var success = document.getElementById('inqSuccess');
   var submitBtn = document.getElementById('inqSubmit');
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var formShownAt = Date.now();
 
   function fieldOf(el) { return el.closest('.field'); }
   function validate(el) {
@@ -1299,14 +1305,51 @@ h1,h2,h3{ font-weight:400; }
     });
     if (firstBad) { firstBad.focus(); return; }
 
+    var errBox = document.getElementById('inqError');
+    errBox.hidden = true;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending\u2026';
-    setTimeout(function () {
+
+    var payload = {
+      name: form.name.value, company: form.company.value, email: form.email.value,
+      phone: form.phone.value, message: form.message.value,
+      website: form.website.value, elapsed: Date.now() - formShownAt
+    };
+
+    function done() {
       form.style.display = 'none';
       success.classList.add('show');
       success.setAttribute('tabindex', '-1');
       success.focus();
-    }, 800);
+    }
+    function fail() {
+      errBox.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = (content.inquire && content.inquire.submitLabel) || 'Send enquiry';
+    }
+    // Primary: our own PHP script. Backup: Formspree, used only if
+    // inquire.formspreeEndpoint is set in content.json (e.g. "https://formspree.io/f/xxxxxxx").
+    function viaPhp() {
+      return fetch('enquiry.php', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+      }).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok || !j.ok) throw new Error('php');
+        });
+      });
+    }
+    function viaFormspree(url) {
+      return fetch(url, {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name: payload.name, company: payload.company, email: payload.email,
+          phone: payload.phone, message: payload.message, _gotcha: payload.website })
+      }).then(function (r) { if (!r.ok) throw new Error('formspree'); });
+    }
+    var backup = content.inquire && content.inquire.formspreeEndpoint;
+    viaPhp().then(done, function () {
+      if (!backup) return fail();
+      viaFormspree(backup).then(done, fail);
+    });
   });
   }).catch(function (err) {
     console.error(err);
