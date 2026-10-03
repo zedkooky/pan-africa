@@ -400,6 +400,14 @@
     if (name.indexOf('Promasidor') !== -1) return ['promasidor', 'Promasidor'];
     return ['dgm', 'DGM'];
   }
+  function setLogo(badge, b) {
+    if (!b.logo) return;
+    badge.classList.add('has-logo');
+    badge.textContent = '';
+    var im = document.createElement('img');
+    im.src = b.logo; im.alt = b.name + ' logo'; im.loading = 'lazy';
+    badge.appendChild(im);
+  }
   function renderBrandChips(content) {
     var el = document.getElementById('brandChips');
     if (!el) return;
@@ -412,6 +420,7 @@
       var badge = document.createElement('span');
       badge.className = 'brand-logo-badge ' + bd[0];
       badge.textContent = bd[1];
+      setLogo(badge, b);
       var nm = document.createElement('span'); nm.className = 'bc-name'; nm.textContent = b.name;
       var cp = document.createElement('span'); cp.className = 'bc-cap'; cp.textContent = b.caption;
       a.appendChild(badge); a.appendChild(nm); a.appendChild(cp);
@@ -464,6 +473,7 @@
       else if (b.name.indexOf('Sylko') !== -1) { badge.classList.add('sylko'); badge.textContent = 'Sylko'; }
       else if (b.name.indexOf('Promasidor') !== -1) { badge.classList.add('promasidor'); badge.textContent = 'Promasidor'; }
       else { badge.classList.add('dgm'); badge.textContent = 'DGM'; }
+      setLogo(badge, b);
 
       headerRow.appendChild(h3);
       headerRow.appendChild(badge);

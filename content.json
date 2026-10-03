@@ -234,7 +234,7 @@
     "eyebrow": "Principal Brands",
     "title": "Trusted to carry names that people already know.",
     "intro": "Panafrica Distributors is an official distributor for its principals, servicing modern trade, wholesalers, supermarkets, large retailers, township shops, bars, clubs, restaurants and hotels.",
-    "note": "Photography is representative of each product category and does not depict the principals’ own packaging.",
+    "note": "Logos, brand names and product images belong to their respective owners and are shown to identify the principals Panafrica Distributors represents.",
     "items": [
       {
         "idx": "01 / Principal",
@@ -250,7 +250,8 @@
         "desc": "The food and beverage lines that restock fastest — everyday pantry and beverage brands that keep a route profitable and a shelf full between deliveries.",
         "caption": "Food & beverage",
         "image": "assets/brand-food.jpg",
-        "imageAlt": "Beverage bottles and food packaging arranged on a counter."
+        "imageAlt": "Beverage bottles and food packaging arranged on a counter.",
+        "logo": "assets/logos/nestle.png"
       },
       {
         "idx": "03 / Principal",
@@ -258,7 +259,8 @@
         "desc": "Matches and household essentials with deep, repeat demand: low ticket, high frequency, sold in every outlet type from supermarket to street kiosk.",
         "caption": "Household & matches",
         "image": "assets/brand-match.jpg",
-        "imageAlt": "Matches and small household goods stacked in a store."
+        "imageAlt": "Matches and small household goods stacked in a store.",
+        "logo": "assets/logos/lion-match.png"
       },
       {
         "idx": "04 / Principal",
@@ -274,7 +276,8 @@
         "desc": "Oral and personal care placed and replenished shelf by shelf, with the merchandising discipline and category control that personal care demands.",
         "caption": "Personal & oral care",
         "image": "assets/brand-colgate.jpg",
-        "imageAlt": "Colgate-Palmolive Zambia — personal and oral care"
+        "imageAlt": "Colgate and Palmolive toothpaste, toothbrushes, mouthwash, soap and shower gel products",
+        "logo": "assets/logos/colgate-palmolive.png"
       },
       {
         "idx": "06 / Principal",
@@ -288,9 +291,10 @@
         "idx": "07 / Principal",
         "name": "Promasidor",
         "desc": "Bulk powdered milk supplied to wholesalers and large retailers.",
-        "caption": "Bulk powdered milk",
+        "caption": "Powdered milk",
         "image": "assets/brand-promasidor.jpg",
-        "imageAlt": "Promasidor — bulk powdered milk"
+        "imageAlt": "Cowbell instant filled milk powder packs, sachets and tin from Promasidor",
+        "logo": "assets/logos/promasidor.png"
       }
     ],
     "cta": "See all principals"
