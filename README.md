@@ -9,7 +9,7 @@ Only the public files are uploaded (pages, `assets/`, `icons/`, `js/cms.js`, `en
 
 ## Deploy settings (GitHub → Settings → Secrets and variables → Actions)
 - Secrets: `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`
-- Variables (optional): `FTP_SERVER_DIR` (e.g. `public_html/`), `SITE_URL` (default `https://padl.co.zm`)
+- Variables (optional): `FTP_SERVER_DIR` (e.g. `public_html/`), `SITE_URL` (default `https://panafricadistributors.com`)
 
 ## Enquiry form
 Posts to `enquiry.php`, which emails info@padl.co.zm. Optional backup: set `inquire.formspreeEndpoint`

@@ -26,9 +26,9 @@ jobs:
           jq 'del(.settings)' content.json > site/content.json
           # the editor needs the Node server, which static hosting does not run
           sed -i '/class="foot-edit"/d' site/index.html site/team.html
-          # canonical/OG/sitemap URLs default to https://padl.co.zm; set repo variable SITE_URL to override
-          SITE="${{ vars.SITE_URL || 'https://padl.co.zm' }}"
-          grep -rl 'https://padl.co.zm' site --include=*.html --include=*.xml --include=*.txt | xargs sed -i "s#https://padl.co.zm#${SITE%/}#g"
+          # canonical/OG/sitemap URLs default to https://panafricadistributors.com; set repo variable SITE_URL to override
+          SITE="${{ vars.SITE_URL || 'https://panafricadistributors.com' }}"
+          grep -rl 'https://panafricadistributors.com' site --include=*.html --include=*.xml --include=*.txt | xargs sed -i "s#https://panafricadistributors.com#${SITE%/}#g"
           find site -type f | sort
 
       - name: Deploy to FTP

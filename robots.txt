@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /enquiry.php
 
-Sitemap: https://padl.co.zm/sitemap.xml
+Sitemap: https://panafricadistributors.com/sitemap.xml

@@ -65,7 +65,7 @@ if (mb_strlen($name) < 2 || mb_strlen($message) < 10 || !filter_var($email, FILT
 }
 
 $domain = preg_replace('/^www\./', '', preg_replace('/:\d+$/', '', $host));
-if (!preg_match('/^[a-z0-9.-]+$/', $domain)) $domain = 'padl.co.zm';
+if (!preg_match('/^[a-z0-9.-]+$/', $domain)) $domain = 'panafricadistributors.com';
 
 $body = "New enquiry from the website\n\n"
       . "Name:    $name\n"
