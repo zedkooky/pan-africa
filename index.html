@@ -216,7 +216,12 @@ h1,h2,h3{ font-weight:400; }
 .preloader{ position:fixed; inset:0; z-index:100; background:var(--teal-deep);
   display:flex; align-items:center; justify-content:center;
   transition:transform 1.5s var(--ease-lift); }
-.pre-inner{ display:flex; flex-direction:column; align-items:center; gap:22px; }
+.pre-inner{ display:flex; flex-direction:column; align-items:center; gap:26px; }
+.pre-lion{ width:clamp(96px,16vw,150px); height:clamp(96px,16vw,150px); background:#fff; opacity:0; transform:scale(.9);
+  -webkit-mask:var(--lion-mask, url("assets/pad-lion.png")) center/contain no-repeat;
+  mask:var(--lion-mask, url("assets/pad-lion.png")) center/contain no-repeat;
+  animation:preLionIn .9s var(--ease-out) .15s forwards; }
+@keyframes preLionIn{ to{ opacity:1; transform:scale(1); } }
 .pre-mark{ width:64px; height:64px; opacity:.9; }
 .pre-word{ font-family:var(--font-display); font-size:2.6rem; color:#fff; letter-spacing:-.02em;
   display:inline-flex; align-items:center; font-weight:700; }
@@ -366,11 +371,11 @@ h1,h2,h3{ font-weight:400; }
 .s2-section{ position:sticky; top:0; height:100vh; background:var(--dark); overflow:hidden; }
 .s2-content{ display:flex; flex-direction:column; height:100%; justify-content:center;
   padding:clamp(30px,4vw,60px) var(--pad-x); }
-.s2-statement-wrap{ max-width:1200px; margin:0 auto; width:100%; padding-left:25%; }
+.s2-statement-wrap{ max-width:1200px; margin:0 auto; width:100%; padding-left:12%; }
 .s2-statement{ font-family:var(--font-body); font-weight:300; color:var(--on-dark);
-  letter-spacing:-.02em; line-height:1.35; white-space:nowrap; font-size:clamp(22px,2.6vw,42px); }
+  letter-spacing:-.02em; line-height:1.35; white-space:normal; text-wrap:balance; max-width:24em; font-size:clamp(22px,2.6vw,42px); }
 .s2-stats-row{ max-width:1200px; margin:clamp(48px,6vw,80px) auto 0; width:100%;
-  padding-left:25%; display:flex; }
+  padding-left:12%; display:flex; }
 .s2-stat{ flex:1; }
 .s2-stat + .s2-stat{ border-left:1px solid var(--line-dark); padding-left:clamp(20px,2.5vw,40px); }
 .s2-num{ font-family:var(--font-body); font-weight:300; color:#fff;
@@ -701,6 +706,7 @@ h1,h2,h3{ font-weight:400; }
 <!-- ===== PRELOADER ===== -->
 <div class="preloader" id="preloader">
   <div class="pre-inner">
+    <span class="pre-lion" aria-hidden="true"></span>
     <div class="pre-word" id="preWord"></div>
     <div class="pre-tag" data-cms="brand.preloaderTag">Distributors&nbsp;·&nbsp;Zambia</div>
   </div>
