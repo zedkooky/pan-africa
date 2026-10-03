@@ -229,8 +229,8 @@ h1,h2,h3{ font-weight:400; }
 .pre-word .l.dot{ font-weight:900; }
 .pre-cursor{ display:inline-block; width:3px; height:1.1em; background:#fff; border-radius:2px;
   margin-left:2px; animation:blink .7s step-end infinite; }
-.pre-tag{ font-family:var(--font-body); font-weight:300; font-size:.72rem; letter-spacing:.32em;
-  text-transform:uppercase; color:rgba(255,255,255,.5); }
+.pre-tag{ font-family:var(--font-body); font-weight:300; font-size:.8rem; letter-spacing:.38em; line-height:2;
+  text-transform:uppercase; color:rgba(255,255,255,.6); text-align:center; padding-left:.38em; }
 
 /* ============ Nav ============ */
 .nav{ position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:space-between;
@@ -714,7 +714,7 @@ h1,h2,h3{ font-weight:400; }
   <div class="pre-inner">
     <span class="pre-lion" aria-hidden="true"></span>
     <div class="pre-word" id="preWord"></div>
-    <div class="pre-tag" data-cms="brand.preloaderTag">Distributors&nbsp;·&nbsp;Zambia</div>
+    <div class="pre-tag" data-cms-html="brand.preloaderTag" data-cms-nl="true">Distributors<br>Limited<br>Zambia</div>
   </div>
 </div>
 
@@ -915,7 +915,7 @@ h1,h2,h3{ font-weight:400; }
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Preloader typewriter ---------- */
-  var FULL_TEXT = (content.brand && content.brand.preloaderWord) || 'PanAfrica.';
+  var FULL_TEXT = (content.brand && content.brand.preloaderWord) || 'PanAfrica';
   var CHAR_INTERVAL = 140, TYPE_START = 600;
   var LIFT_AT = TYPE_START + FULL_TEXT.length * CHAR_INTERVAL + 700;
   var preWord = document.getElementById('preWord');
