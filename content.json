@@ -309,6 +309,10 @@
         "html": "<a href=\"tel:+260972145257\">+260 972 145257</a>"
       },
       {
+        "label": "WhatsApp",
+        "html": "<a href=\"https://wa.me/260979914838?text=Hello%20Panafrica%20Distributors%2C%20I%20would%20like%20to%20make%20an%20enquiry.\" target=\"_blank\" rel=\"noopener noreferrer\">+260 97 9914838</a>"
+      },
+      {
         "label": "Email",
         "html": "<a href=\"mailto:info@padl.co.zm\">info@padl.co.zm</a>"
       },
