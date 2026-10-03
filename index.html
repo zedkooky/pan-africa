@@ -307,6 +307,19 @@ h1,h2,h3{ font-weight:400; }
   transform:scale(1.04); transform-origin:50% 80%;
   filter:grayscale(.7) contrast(1) brightness(1.05); }
 @media (max-width:767px){ .hero-bg{ object-position:50% 50%; transform:none; } }
+
+/* Hero video (desktop/tablet only; phones and reduced-motion keep the still photo) */
+.hero-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 62%;
+  opacity:0; transition:opacity 1.2s ease; pointer-events:none; filter:saturate(1.08) contrast(1.03); }
+.hero.has-video .hero-video{ opacity:1; }
+.hero.has-video .hero-bg-color{ display:none; }
+.hero.has-video .hero-scrim{
+  background:linear-gradient(180deg, rgba(240,242,239,.88) 0%, rgba(240,242,239,.52) 36%,
+    rgba(240,242,239,.26) 66%, rgba(240,242,239,.95) 100%); }
+.hero.has-video .hero-heading-top, .hero.has-video .hero-extraordinary, .hero.has-video .hero-subtitle-desktop{
+  text-shadow:0 0 28px rgba(240,242,239,.85), 0 0 8px rgba(240,242,239,.6); }
+@media (max-width:767px){ .hero-video{ display:none; } }
+@media (prefers-reduced-motion: reduce){ .hero-video{ display:none; } }
 /* colour layer: the same photo, full colour, revealed only around the truck so it stays vivid under the wash */
 .hero-bg-color{ filter:saturate(1.25) contrast(1.06) brightness(1.02); opacity:.9;
   -webkit-mask-image:radial-gradient(ellipse 34% 30% at 50% 66%, #000 38%, transparent 100%);
@@ -760,6 +773,7 @@ h1,h2,h3{ font-weight:400; }
 <!-- ===== HERO ===== -->
 <section class="hero" id="hero">
   <img class="hero-bg" id="top" data-cms-src="hero.image" data-cms-alt="hero.imageAlt" src="assets/hero-truck3.jpg" alt="A Panafrica Distributors delivery truck driving on a multi-lane highway at sunset" width="2000" height="1342" fetchpriority="high" />
+  <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1" data-src="assets/hero.mp4" data-src-webm="assets/hero.webm"></video>
   <div class="hero-scrim"></div>
   <img class="hero-bg hero-bg-color" aria-hidden="true" data-cms-src="hero.image" src="assets/hero-truck3.jpg" alt="" width="2000" height="1342" loading="eager" />
   <div class="hero-text-block" id="heroText">
@@ -969,6 +983,24 @@ h1,h2,h3{ font-weight:400; }
     setTimeout(function () { heroText.classList.add('in'); }, LIFT_AT + 1300);
     setTimeout(finishLift, LIFT_AT + 2100);
   }
+
+
+  /* ---------- Hero video: only where it helps (not phones, not reduced motion, not data-saver) ---------- */
+  (function () {
+    var v = document.getElementById('heroVideo');
+    var hero = document.getElementById('hero');
+    if (!v || !hero) return;
+    var conn = navigator.connection || {};
+    if (window.innerWidth < 768 || reduceMotion || conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')) return;
+    var canMp4 = v.canPlayType('video/mp4; codecs="avc1.42E01E"');
+    v.src = canMp4 ? v.getAttribute('data-src') : v.getAttribute('data-src-webm');
+    v.addEventListener('playing', function () { hero.classList.add('has-video'); }, { once: true });
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { /* autoplay blocked: keep the still photo */ });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) v.pause(); else if (hero.classList.contains('has-video')) v.play().catch(function () {});
+    });
+  })();
 
   /* ---------- Nav ---------- */
   var nav = document.getElementById('nav');
