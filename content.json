@@ -242,7 +242,8 @@
         "desc": "Our deepest franchise: BAT’s products carried by a dedicated field and delivery team, including the Southern Region, on tight, high-frequency cycles.",
         "caption": "Tobacco & nicotine",
         "image": "assets/brand-tobacco.jpg",
-        "imageAlt": "Cured tobacco leaves in a processing tray."
+        "imageAlt": "Cured tobacco leaves in a processing tray.",
+        "logo": "assets/logos/bat.png"
       },
       {
         "idx": "02 / Principal",
